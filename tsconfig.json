@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noLib": false,
+    "declaration": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "typings/main",
+    "typings/main.d.ts",
+    "coverage"
+  ]
+}
