@@ -17,14 +17,7 @@ describe('ipfs-js-connector', function () {
     const options = {
         repo: '0x497066734a73436f6e6e6563746f72',
         init: true,
-        start: true,
-        EXPERIMENTAL: {
-            pubsub: true,
-            sharding: true
-        },
-        config: {
-            Addresses: {}
-        }
+        start: true
     };
 
     it('gets singleton instance', function () {
