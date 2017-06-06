@@ -4,7 +4,6 @@ import * as rimraf from 'rimraf';
 
 describe('ipfs-js-connector', function () {
     this.timeout(4000);
-
     let instance: any;
     const repo = 'test-repo';
     const logger = {
@@ -15,9 +14,22 @@ describe('ipfs-js-connector', function () {
         warn: function () {
         }
     };
+    const options = {
+        repo: '0x497066734a73436f6e6e6563746f72',
+        init: true,
+        start: true,
+        EXPERIMENTAL: {
+            pubsub: true,
+            sharding: true
+        },
+        config: {
+            Addresses: {}
+        }
+    };
 
     it('gets singleton instance', function () {
         instance = IpfsConnector.getInstance();
+        IpfsConnector.getInstance().setOptions(options);
         expect(instance).to.exist;
     });
 

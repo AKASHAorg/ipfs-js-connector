@@ -17,18 +17,7 @@ export default class IpfsJsConnector {
         Swarm: 4042
     };
 
-    private _options = {
-        repo: '0x497066734a73436f6e6e6563746f72',
-        init: true,
-        start: true,
-        EXPERIMENTAL: {
-            pubsub: true,
-            sharding: true
-        },
-        config: {
-            Addresses: {}
-        }
-    };
+    private _options: any = {};
 
     public logger: any = console;
     public serviceStatus: { api: boolean, process: boolean, version: string } = {
@@ -105,7 +94,6 @@ export default class IpfsJsConnector {
      */
     public get config() {
         return Object.assign({},
-            this._options,
             {
                 config: {
                     Addresses: {
@@ -117,7 +105,8 @@ export default class IpfsJsConnector {
                         ] : ['']
                     }
                 }
-            }
+            },
+            this._options
         );
     }
 
@@ -134,7 +123,17 @@ export default class IpfsJsConnector {
      * @param path
      */
     public setIpfsFolder(path: string) {
-        this._options.repo = path;
+        if (this._options.hasOwnProperty('repo')) {
+            this._options.repo = path;
+        } else {
+            Object.defineProperty(this._options, 'repo',
+                {
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                    value: path
+                });
+        }
     }
 
     /**
