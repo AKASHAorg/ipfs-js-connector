@@ -1,6 +1,6 @@
 {
   "name": "@akashaproject/ipfs-js-connector",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Wrapper for js-ipfs to satisfy ipfs connector interface",
   "main": "index.js",
   "types": "index.d.ts",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/AkashaProject/ipfs-js-connector#readme",
   "dependencies": {
-    "@akashaproject/ipfs-connector-utils": "1.0.2",
+    "@akashaproject/ipfs-connector-utils": "1.0.4",
     "@types/bluebird": "3.5.8",
     "@types/node": "8.0.3",
     "bluebird": "3.5.0",
