@@ -1,6 +1,6 @@
 {
   "name": "@akashaproject/ipfs-js-connector",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Wrapper for js-ipfs to satisfy ipfs connector interface",
   "main": "index.js",
   "types": "index.d.ts",
