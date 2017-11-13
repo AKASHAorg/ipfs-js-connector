@@ -163,6 +163,9 @@ describe('ipfs-js-connector', function () {
     });
 
     after(function (done) {
-        return rimraf(repo, done);
+        return rimraf(repo, () => {
+            done();
+            process.exit();
+        });
     });
 });
