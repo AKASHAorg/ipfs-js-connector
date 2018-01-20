@@ -34,7 +34,7 @@
     "@types/bluebird": "3.5.18",
     "@types/node": "8.5.1",
     "bluebird": "3.5.1",
-    "ipfs": "0.27.4"
+    "ipfs": "0.27.6"
   },
   "devDependencies": {
     "@types/chai": "4.0.10",
