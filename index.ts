@@ -138,10 +138,18 @@ export default class IpfsJsConnector {
 
     /**
      *
-     * @returns {Bluebird}
+     * @param ipfsProvider      Ex: IPFS Companion
+     * @returns {Bluebird<any>}
      */
-    public start() {
+    public start(ipfsProvider?: any) {
         return new Promise((resolve, reject) => {
+
+            if (ipfsProvider) {
+                this._process = ipfsProvider;
+                this.serviceStatus.process = true;
+                return resolve(this);
+            }
+
             this._process = new IPFS(this.config);
             this.apiAddress = this.config.config.Addresses.API;
             this.on('error', (err) => {
