@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/AkashaProject/ipfs-js-connector#readme",
   "dependencies": {
-    "@akashaproject/ipfs-connector-utils": "1.0.14",
+    "@akashaproject/ipfs-connector-utils": "1.0.15",
     "@types/bluebird": "3.5.20",
     "@types/node": "9.6.4",
     "bluebird": "3.5.1",
