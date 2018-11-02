@@ -1,6 +1,6 @@
 {
   "name": "@akashaproject/ipfs-js-connector",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Wrapper for js-ipfs to satisfy ipfs connector interface",
   "main": "index.js",
   "types": "index.d.ts",
@@ -9,9 +9,7 @@
     "docs": "typedoc index.ts --out docs",
     "release": "standard-version",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "test-debug": "./node_modules/.bin/_mocha --debug-brk --inspect ./tests.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "test-debug": "./node_modules/.bin/_mocha --debug-brk --inspect ./tests.js"
   },
   "keywords": [
     "ipfs",
