@@ -2,8 +2,8 @@ import * as IPFS from 'ipfs';
 import IpfsApiHelper from '@akashaproject/ipfs-connector-utils';
 import * as Promise from 'bluebird';
 
-const symbolEnforcer = Symbol();
-const symbol = Symbol();
+const symbolEnforcer = Symbol('ipfs-js');
+const symbol = Symbol('ipfs-js');
 const requiredVersion = '0.32.3';
 
 export default class IpfsJsConnector {
