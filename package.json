@@ -35,7 +35,7 @@
     "@types/node": "10.12.2",
     "bluebird": "3.5.2",
     "ipfs": "0.33.0",
-    "snyk": "^1.88.2"
+    "snyk": "^1.106.0"
   },
   "devDependencies": {
     "@types/chai": "4.1.7",
