@@ -12,3 +12,5 @@ patch:
         patched: '2018-10-11T18:16:01.689Z'
     - ipfs > ipfs-mfs > ipfs-unixfs-engine > ipld > ipld-zcash > zcash-bitcore-lib > lodash:
         patched: '2018-10-11T18:16:01.689Z'
+    - ipfs > ipld-zcash > zcash-bitcore-lib > lodash:
+        patched: '2018-11-02T10:37:18.985Z'
