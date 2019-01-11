@@ -162,7 +162,7 @@ export default class IpfsJsConnector {
                 resolve(this);
             });
         }).then(() => {
-            return this.api.apiClient.versionAsync().then((data: any) => {
+            return this.api.ipfsApi.version().then((data: any) => {
                 this.serviceStatus.api = true;
                 this.serviceStatus.version = data.version;
                 return this;
@@ -290,7 +290,7 @@ export default class IpfsJsConnector {
      * @returns {Bluebird<boolean>|Bluebird<U2|boolean>|PromiseLike<TResult2|boolean>|Thenable<boolean>|PromiseLike<boolean>|Promise<TResult|boolean>|any}
      */
     public checkVersion() {
-        return this.api.apiClient.versionAsync().then(
+        return this.api.ipfsApi.version().then(
             (data: any) => {
                 this.serviceStatus.version = data.version;
                 return data.version === requiredVersion;

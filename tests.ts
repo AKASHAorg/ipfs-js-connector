@@ -147,7 +147,7 @@ describe('ipfs-js-connector', function () {
         expect(IpfsConnector.getInstance().listenerCount('stop')).to.eql(0);
     });
 
-    it('Overwrites options', function(){
+    it('Overwrites options', function() {
        IpfsConnector.getInstance().setOptions({start: false, repo: 'test1'});
        expect(IpfsConnector.getInstance().config.start).to.be.false;
     });
