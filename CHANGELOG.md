@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/AkashaProject/ipfs-js-connector/compare/v1.0.33...v1.1.0) (2019-01-11)
+
+
+### Bug Fixes
+
+* .snyk & package.json to reduce vulnerabilities ([#6](https://github.com/AkashaProject/ipfs-js-connector/issues/6)) ([aaa6fae](https://github.com/AkashaProject/ipfs-js-connector/commit/aaa6fae))
+* **api:** update to latest ipfs-connector-utils ([d338041](https://github.com/AkashaProject/ipfs-js-connector/commit/d338041))
+
+
+
 <a name="1.0.33"></a>
 ## [1.0.33](https://github.com/AkashaProject/ipfs-js-connector/compare/v1.0.32...v1.0.33) (2018-12-03)
 
