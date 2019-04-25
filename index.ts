@@ -4,7 +4,7 @@ import * as Promise from 'bluebird';
 
 const symbolEnforcer = Symbol('ipfs-js');
 const symbol = Symbol('ipfs-js');
-const requiredVersion = '0.34.4';
+const requiredVersion = '0.35.0';
 
 export default class IpfsJsConnector {
 
@@ -14,7 +14,7 @@ export default class IpfsJsConnector {
     private _ports = {
         API: 5042,
         Gateway: 8042,
-        Swarm: 4042
+        Swarm: 4042,
     };
 
     private _options: any = {};
@@ -23,14 +23,14 @@ export default class IpfsJsConnector {
     public serviceStatus: { api: boolean, process: boolean, version: string } = {
         process: false,
         api: false,
-        version: ''
+        version: '',
     };
 
     /**
      *
      * @param enforcer
      */
-    constructor(enforcer: any) {
+    constructor (enforcer: any) {
         if (enforcer !== symbolEnforcer) {
             throw new Error('Use .getInstance() instead of constructing a new object');
         }
@@ -40,7 +40,7 @@ export default class IpfsJsConnector {
      *
      * @returns {any}
      */
-    public static getInstance(): IpfsJsConnector {
+    public static getInstance (): IpfsJsConnector {
         if (!this[symbol]) {
             this[symbol] = new IpfsJsConnector(symbolEnforcer);
         }
@@ -51,7 +51,7 @@ export default class IpfsJsConnector {
      * Get ipfs-connector-utils instance
      * @returns {any}
      */
-    get api() {
+    get api () {
         if (!this._api) {
             this._requireInstance();
             this._api = new IpfsApiHelper(this._process);
@@ -64,7 +64,7 @@ export default class IpfsJsConnector {
      * @param key
      * @returns {any}
      */
-    public getOption(key: string) {
+    public getOption (key: string) {
         if (!this._options.hasOwnProperty(key)) {
             throw new Error(`Option ${key} does not exist.`);
         }
@@ -76,7 +76,7 @@ export default class IpfsJsConnector {
      * @param key
      * @param value
      */
-    public setOption(key: string, value: any) {
+    public setOption (key: string, value: any) {
         this._options[key] = value;
     }
 
@@ -84,7 +84,7 @@ export default class IpfsJsConnector {
      * Overwrite all options
      * @param config
      */
-    public setOptions(config: any) {
+    public setOptions (config: any) {
         this._options = config;
     }
 
@@ -92,21 +92,21 @@ export default class IpfsJsConnector {
      * Get ipfs start configuration
      * @returns {{}&{repo: string, init: boolean, start: boolean, EXPERIMENTAL: {pubsub: boolean, sharding: boolean}, config: {Addresses: {}}}&{config: {Addresses: {API: string, Gateway: string, Swarm: ([string,string]|[string])}}}}
      */
-    public get config() {
+    public get config () {
         return Object.assign({},
-            {
-                config: {
-                    Addresses: {
-                        API: (this._ports.API) ? `/ip4/127.0.0.1/tcp/${this._ports.API}` : '',
-                        Gateway: (this._ports.Gateway) ? `/ip4/127.0.0.1/tcp/${this._ports.Gateway}` : '',
-                        Swarm: (this._ports.Swarm) ? [
-                            `/ip4/0.0.0.1/tcp/${this._ports.Swarm}`,
-                            `/ip6/::/tcp/${this._ports.Swarm}`
-                        ] : ['']
-                    }
-                }
-            },
-            this._options
+          {
+              config: {
+                  Addresses: {
+                      API: (this._ports.API) ? `/ip4/127.0.0.1/tcp/${this._ports.API}` : '',
+                      Gateway: (this._ports.Gateway) ? `/ip4/127.0.0.1/tcp/${this._ports.Gateway}` : '',
+                      Swarm: (this._ports.Swarm) ? [
+                          `/ip4/0.0.0.1/tcp/${this._ports.Swarm}`,
+                          `/ip6/::/tcp/${this._ports.Swarm}`,
+                      ] : [''],
+                  },
+              },
+          },
+          this._options,
         );
     }
 
@@ -114,7 +114,7 @@ export default class IpfsJsConnector {
      *
      * @param newLogger
      */
-    public setLogger(newLogger: object) {
+    public setLogger (newLogger: object) {
         this.logger = newLogger;
     }
 
@@ -122,17 +122,17 @@ export default class IpfsJsConnector {
      * Path to ipfs store
      * @param path
      */
-    public setIpfsFolder(path: string) {
+    public setIpfsFolder (path: string) {
         if (this._options.hasOwnProperty('repo')) {
             this._options.repo = path;
         } else {
             Object.defineProperty(this._options, 'repo',
-                {
-                    enumerable: true,
-                    configurable: true,
-                    writable: true,
-                    value: path
-                });
+              {
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                  value: path,
+              });
         }
     }
 
@@ -141,7 +141,7 @@ export default class IpfsJsConnector {
      * @param ipfsProvider      Ex: IPFS Companion
      * @returns {Bluebird<any>}
      */
-    public start(ipfsProvider?: any) {
+    public start (ipfsProvider?: any) {
         return new Promise((resolve, reject) => {
 
             if (ipfsProvider) {
@@ -174,7 +174,7 @@ export default class IpfsJsConnector {
      *
      * @returns {any}
      */
-    public getNode() {
+    public getNode () {
         return this._process;
     }
 
@@ -182,7 +182,7 @@ export default class IpfsJsConnector {
      *
      * @returns {boolean}
      */
-    public stop() {
+    public stop () {
         if (this._process) {
             this._process.stop();
         }
@@ -199,7 +199,7 @@ export default class IpfsJsConnector {
      * @param cb
      * @returns {any}
      */
-    public on(event: string, cb: (data?: any) => void) {
+    public on (event: string, cb: (data?: any) => void) {
         this._requireInstance();
         return this._process.on(event, cb);
     }
@@ -208,7 +208,7 @@ export default class IpfsJsConnector {
      *
      * @private
      */
-    private _requireInstance() {
+    private _requireInstance () {
         if (!this._process) {
             throw new Error('Must provide a js-ipfs instance.');
         }
@@ -219,7 +219,7 @@ export default class IpfsJsConnector {
      * @param event
      * @param cb
      */
-    public once(event: string, cb: (data?: any) => void) {
+    public once (event: string, cb: (data?: any) => void) {
         this._requireInstance();
         return this._process.once(event, cb);
     }
@@ -229,7 +229,7 @@ export default class IpfsJsConnector {
      * @param event
      * @param cb
      */
-    public removeListener(event: string, cb: (data?: any) => void) {
+    public removeListener (event: string, cb: (data?: any) => void) {
         this._requireInstance();
         return this._process.removeListener(event, cb);
     }
@@ -239,12 +239,12 @@ export default class IpfsJsConnector {
      * @param event
      * @returns {any|Cluster}
      */
-    public removeAllListeners(event: string) {
+    public removeAllListeners (event: string) {
         this._requireInstance();
         return this._process.removeAllListeners(event);
     }
 
-    public listenerCount(event: string) {
+    public listenerCount (event: string) {
         this._requireInstance();
         return this._process.listenerCount(event);
     }
@@ -253,11 +253,11 @@ export default class IpfsJsConnector {
      *
      * @returns {{gateway: number, api: number, swarm: number}}
      */
-    public getPorts() {
+    public getPorts () {
         return Promise.resolve({
             gateway: this._ports.Gateway,
             api: this._ports.API,
-            swarm: this._ports.Swarm
+            swarm: this._ports.Swarm,
         });
     }
 
@@ -267,20 +267,20 @@ export default class IpfsJsConnector {
      * @param restart
      * @returns {Bluebird<{API, Gateway, Swarm}>}
      */
-    public setPorts(ports: { gateway?: number, api?: number, swarm?: number }, restart = false) {
+    public setPorts (ports: { gateway?: number, api?: number, swarm?: number }, restart = false) {
         this._ports = Object.assign({}, this._ports, {
             Gateway: ports.gateway,
             API: ports.api,
-            Swarm: ports.swarm
+            Swarm: ports.swarm,
         });
 
         if (restart) {
             return Promise
-                .resolve(this.stop()).delay(1000)
-                .then(() => {
-                    return this.start().delay(500);
-                })
-                .then(() => ports);
+              .resolve(this.stop()).delay(1000)
+              .then(() => {
+                  return this.start().delay(500);
+              })
+              .then(() => ports);
         }
         return Promise.resolve(ports);
     }
@@ -289,12 +289,12 @@ export default class IpfsJsConnector {
      *
      * @returns {Bluebird<boolean>|Bluebird<U2|boolean>|PromiseLike<TResult2|boolean>|Thenable<boolean>|PromiseLike<boolean>|Promise<TResult|boolean>|any}
      */
-    public checkVersion() {
+    public checkVersion () {
         return this.api.ipfsApi.version().then(
-            (data: any) => {
-                this.serviceStatus.version = data.version;
-                return data.version === requiredVersion;
-            }
+          (data: any) => {
+              this.serviceStatus.version = data.version;
+              return data.version === requiredVersion;
+          },
         );
     }
 }
