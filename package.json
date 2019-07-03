@@ -9,7 +9,9 @@
     "docs": "typedoc index.ts --out docs",
     "release": "standard-version",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "test-debug": "./node_modules/.bin/_mocha --debug-brk --inspect ./tests.js"
+    "test-debug": "./node_modules/.bin/_mocha --debug-brk --inspect ./tests.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "ipfs",
@@ -34,7 +36,8 @@
     "@types/bluebird": "3.5.26",
     "@types/node": "11.13.7",
     "bluebird": "3.5.4",
-    "ipfs": "0.36.0"
+    "ipfs": "0.36.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/chai": "4.1.7",
@@ -49,5 +52,6 @@
     "standard-version": "5.0.2",
     "tslint": "5.16.0",
     "typescript": "3.4.5"
-  }
+  },
+  "snyk": true
 }
