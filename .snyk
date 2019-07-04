@@ -304,3 +304,25 @@ patch:
         patched: '2019-07-03T23:29:27.619Z'
     - ipfs > libp2p > libp2p-switch > libp2p-circuit > peer-info > peer-id > libp2p-crypto > libp2p-crypto-secp256k1 > async > lodash:
         patched: '2019-07-03T23:29:27.619Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-04T10:17:26.767Z'
