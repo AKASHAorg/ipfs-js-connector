@@ -304,3 +304,8 @@ patch:
         patched: '2019-07-03T23:29:27.619Z'
     - ipfs > libp2p > libp2p-switch > libp2p-circuit > peer-info > peer-id > libp2p-crypto > libp2p-crypto-secp256k1 > async > lodash:
         patched: '2019-07-03T23:29:27.619Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T23:29:23.821Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T23:29:23.821Z'
