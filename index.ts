@@ -4,7 +4,7 @@ import * as Promise from 'bluebird';
 
 const symbolEnforcer = Symbol('ipfs-js');
 const symbol = Symbol('ipfs-js');
-const requiredVersion = '0.35.0';
+const requiredVersion = '0.39.0';
 
 export default class IpfsJsConnector {
 
